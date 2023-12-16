@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup Page</title>
+    <style>
+        #result {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,11 +30,12 @@
         <label for="repeatPassword">Repeat password:</label>
         <input type="password" id="repeatPassword" required>
         <br>
+        <div id="result"></div>
         <button type="submit">Signup</button>
     </form>
+    <br>
     <p>Already have an account? <a href="./login.html">Login</a></p>
     <br>
-    <div id="result"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
@@ -58,7 +64,8 @@
                     }
                 }
             } catch (e) {
-                console.log(e)
+                console.log(e.response.data)
+                document.querySelector("#result").innerHTML = e.response.data.message
             }
         })
     </script>

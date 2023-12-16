@@ -84,7 +84,7 @@ router.post("/post", async (req, res) => {
 
         const insertResponse = await col.insertOne(newPost);
         console.log("insertResponse", insertResponse);
-        res.send({ message: "post created" })
+        res.send({ message: "Post created" })
 
     } catch (e) {
         console.log("error inserting mongodb: ", e)
@@ -127,7 +127,7 @@ router.put("/post/:postId", async (req, res) => {
             }
         )
         console.log("updateResponse: ", updateResponse)
-        res.send({ message: "post updated" })
+        res.send({ message: "Post updated" })
     } catch (e) {
         console.log("error updating mongodb: ", e);
         res.status(500).send("server error, please try later");
@@ -145,7 +145,7 @@ router.delete("/post/:postId", async (req, res) => {
     try {
         const deleteResponse = await col.deleteOne({ _id: new ObjectId(req.params.postId) })
         console.log("deleteResponse: ", deleteResponse)
-        res.send({ message: "post deleted" })
+        res.send({ message: "Post deleted" })
     } catch (e) {
         console.log("error updating mongodb: ", e);
         res.status(500).send("server error, please try later");
