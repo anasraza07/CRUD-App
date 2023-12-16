@@ -43,7 +43,6 @@
 
             try {
                 if (passwordInput !== repeatPassword) {
-                    // console.log("Password doesn't match!");
                     document.querySelector("#result").innerHTML = "Password doesn't match!"
                 } else {
                     const axiosResponse = await axios.post("/api/v1/signup", {
@@ -54,7 +53,7 @@
                         repeatPassword: repeatPassword
                     })
                     console.log(axiosResponse.data.message)
-                    if (axiosResponse.response.status === 200) {
+                    if (axiosResponse.status === 200) {
                         window.location.href = "/login.html"
                     }
                 }
